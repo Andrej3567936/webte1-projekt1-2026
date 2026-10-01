@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CustomFont';
-    src: url(fonts/Google_Sans/GoogleSans-VariableFont_GRAD,opsz,wght.ttf) format("truetype");
+    src: url(fonts/Google_Sans/static/GoogleSans-VariableFont_GRAD,opsz,wght.ttf) format("truetype");
 }
 
 :root {
