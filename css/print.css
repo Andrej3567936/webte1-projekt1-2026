@@ -1,0 +1,24 @@
+@media print {
+    header, nav, footer {
+        display: none !important;
+    }
+
+    body, .cv, .cv-left, .cv-right {
+        background: transparent !important;
+        background-color: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+    
+    .cv {
+        page-break-inside: avoid;
+    }
+}

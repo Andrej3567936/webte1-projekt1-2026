@@ -9,24 +9,33 @@
 </head>
 <body>
     <header>
-        <h1>Andrej Hudačko - Webte1 - FEI STU</h1>
-        <!-- navigacia -->
+        <div class="brand">
+            <span class="brand-monogram">AH</span>
+            <div class="brand-text">
+                <h1>Andrej Hudačko</h1>
+                <p class="slogan">Študent aplikovanej informatiky</p>
+                <p class="slogan">Weby sú fajn, ale radšej trávim čas vonku.</p>
+
+            </div>
+        </div>
         <nav>
-            
-            <a href="index.html">Profil</a>
-            <a href="pages/cv.html">Životopis</a>
-            <a href="pages/workspace.html">Moje pracovné prostredie</a>
-            <a href="pages/schedule.html">Kedy ma zastihnete</a>
-            <a href="pages/map.html">Kde ma nájdete</a>
-            
-            
+
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul>
+                <li><a href="index.html" class="active">Profil</a></li>
+                <li><a href="pages/cv.html">Životopis</a></li>
+                <li><a href="pages/workspace.html">Moje pracovné prostredie</a></li>
+                <li><a href="pages/schedule.html">Kedy ma zastihnete</a></li>
+                <li><a href="pages/map.html">Kde ma nájdete</a></li>
+            </ul>
 
         </nav>
     </header>
 
     <main>
         <section id="Profil">
-            <h2>Kto som?</h2>
             <img
                 src="img/profile_img.jpg" 
                 alt="Profile picture" 
@@ -35,20 +44,35 @@
                 loading="lazy"
                 class="profile-img"
             >
-
-
-            <p>Čaute! Volám sa Aďo a toto je moja historicky prva stránka.</p>
+            <h2>Kto som?</h2>
+            <p>Volám sa Andrej a som v 3. ročníku na FEI STU v Bratislave.</p>
+            <p>Študujem odbor Aplikovaná informatika.</p>
+            <p>Pochádzam z Prešova.</p>
+            <p>Mojim cieľom je skĺbiť naberanie nových znalostí z oboru IT s pobytom na čerstvom vzduchu (IT zatiaľ vediet).</p>
+        
         </section>
         
+        <section id="Charateristics">
+            <h3>3 veci, čo ma charakterizujú:</h3>
+            <ul>
+                <li>zvedavosť</li>
+                <li>občas nedochvíľnosť</li>
+                <li>doom scrolling</li>
+            </ul>
+        </section>
 
+        <aside class="profile-quote">
+            <blockquote>
+                "Nothing is as permanent as a temporary solution that works"
+            </blockquote>
+        </aside>
         
-
     </main>
 
     <footer>
         <address>Kontakt: <a href="mailto: andrej.hudaacko@gmail.com">andrej.hudacko@gmail.com </a> </address>
         <p>2026</p>
-        <p>zdroje: <a href="wikipedia.com">wikipedia.com</a></p>
+        <p>zdroje: <a href="https://www.wikipedia.org/">wikipedia.com</a></p>
     </footer>
 </body>
 </html>
