@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z1</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- pridal som tu cestu do css suboru -->
+    <link rel="stylesheet" href="../css/print.css">
+    
+
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <span class="brand-monogram">AH</span>
+            <div class="brand-text">
+                <h1>Andrej Hudačko</h1>
+                <p class="slogan">Študent aplikovanej informatiky</p>
+                <p class="slogan">Weby sú fajn, ale radšej trávim čas vonku.</p>
+
+            </div>
+        </div>
+        <nav>
+
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul>
+                <li><a href="../index.html">Profil</a></li>
+                <li><a href="../pages/cv.html">Životopis</a></li>
+                <li><a href="../pages/workspace.html">Moje pracovné prostredie</a></li>
+                <li><a href="../pages/schedule.html"class="active">Kedy ma zastihnete</a></li>
+                <li><a href="../pages/map.html">Kde ma nájdete</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="schedule">
+        <!-- Hlásenie o aktuálnej alebo najbližšej hodine -->
+        <p id="schedule-status" class="schedule-status">Zisťujem aktuálny rozvrh...</p>
+        <p id="filter-empty-msg" class="filter-empty-msg" hidden>Pre zvolený filter sa v rozvrhu nenachádzajú žiadne hodiny.</p>
+        <div class="table-container">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                    <th>Deň / Čas</th>
+                    <th>7:00</th>
+                    <th>8:00</th>
+                    <th>9:00</th>
+                    <th>10:00</th>
+                    <th>11:00</th>
+                    <th>12:00</th>
+                    <th>13:00</th>
+                    <th>14:00</th>
+                    <th>15:00</th>
+                    <th>16:00</th>
+                    <th>17:00</th>
+                    <th>18:00</th>
+                    <th>19:00</th>
+                    <th>20:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <!-- PONDELOK -->
+                    <tr data-day="1">
+                        <th>Pondelok</th>
+                        <td colspan="4" class="empty-slot"></td> <!-- 7:00 - 11:00 -->
+                        <td colspan="2" data-type="exercise">
+                            <strong>Webové technológie 1</strong><br>K. Žáková
+                        </td>
+                        <td colspan="2" data-type="exercise">
+                            <strong>Operačné systémy</strong><br>M. Jókay
+                        </td>
+                        <td colspan="2" data-type="lecture">
+                            <strong>Lineárna algebra 2</strong><br>J. Šiagiová
+                        </td>
+                        <td colspan="4" class="empty-slot"></td> <!-- 17:00 - 21:00 -->
+                    </tr>
+
+                    <!-- UTOROK -->
+                    <tr data-day="2">
+                        <th>Utorok</th>
+                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        <td colspan="2" data-type="lecture">
+                            <strong>Analýza a zlož. algoritmov</strong><br>M. Bečka
+                        </td>
+                        <td colspan="2" data-type="lecture">
+                            <strong>Webové technológie 1</strong><br>K. Žáková
+                        </td>
+                        <td class="empty-slot"></td> <!-- 12:00 - 13:00 -->
+                        <td colspan="2" data-type="sport">
+                            <strong>Telesná kultúra 5</strong><br>K. Hižnayová
+                        </td>
+                        <td colspan="6" class="empty-slot"></td> <!-- 15:00 - 21:00 -->
+                    </tr>
+
+                    <!-- STREDA -->
+                    <tr data-day="3">
+                        <th>Streda</th>
+                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        <td colspan="2" data-type="lecture">
+                            <strong>Operačné systémy</strong><br>M. Jókay
+                        </td>
+                        <td colspan="2" data-type="lecture">
+                            <strong>Analýza a zlož. algoritmov</strong><br>M. Bečka
+                        </td>
+                        <td colspan="2" class="empty-slot"></td> <!-- 12:00 - 14:00 -->
+                        <td colspan="2" data-type="lecture">
+                            <strong>Webové technológie 1</strong><br>K. Žáková
+                        </td>
+                        <td colspan="5" class="empty-slot"></td> <!-- 16:00 - 21:00 -->
+                    </tr>
+
+                    <!-- ŠTVRTOK -->
+                    <tr data-day="4">
+                        <th>Štvrtok</th>
+                        <td colspan="14" class="empty-slot"></td> <!-- Celý deň voľno -->
+                    </tr>
+
+                    <!-- PIATOK -->
+                    <tr data-day="5">
+                        <th>Piatok</th>
+                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        
+                        <!-- Zlúčená bunka pre kolíziu (8:00 - 11:00) -->
+                        <td colspan="2" data-type="exercise" style="font-size: 0.85em;">
+                            <strong>Lineárna algebra 2</strong><br> P. Viceník
+                        </td>
+                    
+                    <td colspan="11" class="empty-slot"></td> <!-- 11:00 - 21:00 -->
+                    </tr>
+
+                </tbody>
+                
+            </table>
+        </div>   
+
+        <p class="schedule-legend">
+            Filter:
+            <button type="button" class="legend-btn legend-btn-all active" data-filter="all">Všetko</button> /
+            <button type="button" class="legend-btn legend-btn-text-lecture" data-filter="lecture">Prednášky</button> /
+            <button type="button" class="legend-btn legend-btn-text-exercise" data-filter="exercise">Cvičenia</button> /
+            <button type="button" class="legend-btn legend-btn-text-sport" data-filter="sport">Telesná kultúra</button> 
+            
+        </p>
+
+
+        <!-- Progress bar semestra -->
+        <section class="semester-progress-section">
+            <h3>Priebeh semestra</h3>
+            <div class="progress-bar-wrapper">
+                <div id="progress-fill" class="progress-bar-fill"></div>
+            </div>
+            <p id="progress-text" class="progress-text"></p>
+            <p id="progress-days-left" class="progress-days-left"></p>
+        </section>
+
+    </main>
+    
+    <footer>
+        <address>Kontakt: <a href="mailto: andrej.hudacko@gmail.com">andrej.hudacko@gmail.com </a> </address>
+        <p>2026</p>
+        <p>zdroje: <a href="https://www.wikipedia.org/">wikipedia.com</a></p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

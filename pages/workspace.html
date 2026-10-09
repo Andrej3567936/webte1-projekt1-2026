@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z1</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- pridal som tu cestu do css suboru -->
+    <link rel="stylesheet" href="../css/print.css">
+
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span class="brand-monogram">AH</span>
+            <div class="brand-text">
+                <h1>Andrej Hudačko</h1>
+                <p class="slogan">Študent aplikovanej informatiky</p>
+                <p class="slogan">Weby sú fajn, ale radšej trávim čas vonku.</p>
+
+            </div>
+        </div>
+        <nav>
+
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul>
+                <li><a href="../index.html">Profil</a></li>
+                <li><a href="../pages/cv.html">Životopis</a></li>
+                <li><a href="../pages/workspace.html"class="active">Moje pracovné prostredie</a></li>
+                <li><a href="../pages/schedule.html">Kedy ma zastihnete</a></li>
+                <li><a href="../pages/map.html">Kde ma nájdete</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="workspace">
+       <h1>Moje pracovné prostredie</h1>
+       <p>Prejdite myšou nad objekty pre viac informácií.</p>
+
+        <!-- Kontajner pre obrázok a interaktívne body -->
+        <div class="workspace-container" id="workspace-container">
+            <!-- Nahraď cestu k svojej fotke -->
+            <img src="../img/setup.jpg" alt="mysetup" class="workspace-img">
+        
+         <!-- JavaScript sem vygeneruje hotspoty -->
+        </div>
+    </main>
+    
+    <footer>
+            <address>Kontakt: <a href="mailto: andrej.hudacko@gmail.com">andrej.hudacko@gmail.com </a> </address>
+            <p>2026</p>
+            <p>zdroje: <a href="https://www.wikipedia.org/">wikipedia.com</a></p>
+        </footer>
+</body>
+</html>

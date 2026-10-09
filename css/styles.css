@@ -7,11 +7,23 @@
     --color-bg-body: #121214;
     --color-bg-card: #26262b;
     --color-title: #34d399;
-    --color-text-main: #ffffff;
-    --color-text-muted: #a1a1aa;
-    --color-bg-main:#1a1a1e;
+    --color-text-muted: #ffffff;
+    --color-text-main: #a1a1aa;
+    --color-bg-main: #1a1a1e;
     --color-figcaption: #71717a;
-}
+
+    /* Plné sýte farby pre text a zvýraznenie */
+    --color-lecture: #60a5fa;   /* Jasná modrá */
+    --color-exercise: #34d399;  /* Jasná zelená */
+    --color-sport: #fbbf24;     /* Jasná žltá/oranžová */
+
+    /* Priesvitné podklady pre bunky tabuľky (35 % priehľadnosť) */
+    --color-lecture-bg: rgba(96, 165, 250, 0.22);
+    --color-exercise-bg: rgba(52, 211, 153, 0.22);
+    --color-sport-bg: rgba(251, 191, 36, 0.22);
+}   /* Jemná oranžová */
+
+
 
 body {
     font-family: 'CustomFont', Arial, sans-serif;
@@ -24,7 +36,7 @@ a:link { color: var(--color-text-muted); text-decoration: none; }
 a:visited { color: var(--color-text-muted); text-decoration: none; }
 a:focus { color: var(--color-title); text-decoration: none; }
 a:hover { color: var(--color-title); text-decoration: none; }
-a:active { color: var(--color-title); text-decoration: underline; }
+a:active { color: var(--color-title); text-decoration: none; }
 
 /*-L-V-F-H-A-*/
 header, footer {
@@ -78,10 +90,22 @@ nav ul{
     font-size: 18px;
 }
 
+nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-title);
+    border-bottom-color: var(--color-title);
+}
+
 nav a.active {
     color: var(--color-title);
-    border-bottom: 2px solid var(--color-title);
-    padding-bottom: 5px;
+    border-bottom-color: var(--color-title);
 }
 
 .menu-checkbox, .menu-icon {
@@ -100,7 +124,7 @@ section {
 }
 
 section h2 {
-    color: var(--color-text-main);
+    color: var(--color-title);
 }
 
 section p {
@@ -108,9 +132,9 @@ section p {
 }
 
 
-main {
-    width: 80%;
-    max-width: 800px;
+.profile {
+    width: 75%;
+    max-width: 840px;
     margin: 60px auto;
     background-color: var(--color-bg-main);
     color: var(--color-text-main);
@@ -120,7 +144,7 @@ main {
     font-size: 18px;
 }
 
-main h2 {
+.profile h2 {
     color: var(--color-title);
     margin-top: 0;
     font-size: 30px;
@@ -128,7 +152,7 @@ main h2 {
 }
 
 
-main .profile-img{
+ .profile-img{
     max-width: 100%;
     height: auto;
     float: left;
@@ -251,8 +275,8 @@ figcaption {
 .cv {
     display: flex;             /* flexbox */
     align-items: stretch;      
-    width: 100%;
-    max-width: 900px;
+    width: 75%;
+    max-width: 1000px;
     margin: 60px auto;
     border-radius: 12px;
     overflow: hidden;        
@@ -272,14 +296,16 @@ figcaption {
 }
 
 .cv-left img {
-    border-radius: 10%;     
+    border-radius: 12px;     
     margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
 .cv-left address {
     font-style: normal;
-    text-align: left;
     color: var(--color-text-muted);
+    text-align: center;
 }
 
 .cv-right {
@@ -303,4 +329,160 @@ figcaption {
     padding-left: 20px; 
     padding-right: 0; 
 }
+
+
+/*tabulka*/
+.schedule {
+    max-width: 100%;
+    margin: 100px;
+    color: var(--color-text-muted);
+    text-align: center;
+
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    background-color: var(--color-bg-main);
+    border-radius: 12px;
+    scrollbar-color: var(--color-text-muted) var(--color-bg-card);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collpase;
+    min-width: 700px;
+    color: var(--color-text-muted);
+    text-align: center;
+
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid var(--color-bg-card);
+    padding: 10px;
+    text-align: center;
+}
+
+.schedule-table tbody tr:nth-of-type(odd) {
+    background-color: var(--color-bg-body);
+}
+/* Prednášky - jemná verzia tvojej brand farby */
+/* Prednášky */
+/* Podfarbenie buniek v tabuľke */
+.schedule-table td[data-type="lecture"] {
+  background-color: var(--color-lecture-bg);
+  color: inherit; /* Biely, ostrý text */
+}
+
+.schedule-table td[data-type="exercise"] {
+  background-color: var(--color-exercise-bg);
+  color: inherit;
+}
+
+.schedule-table td[data-type="sport"] {
+  background-color: var(--color-sport-bg);
+  color: inherit;
+}
+
+/* Názvy predmetov v bunkách */
+.schedule-table td strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+}
+
+
+
+
+
+.legend-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 2px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    
+}
+
+/* Hover a aktívny stav pre jednotlivé typy */
+.legend-btn-all:hover,
+.legend-btn-all.active {
+    color: var(--color-text-main);
+    border-bottom-color: var(--color-text-main);
+}
+
+.legend-btn-text-lecture:hover,
+.legend-btn-text-lecture.active {
+    color: var(--color-lecture);
+    border-bottom-color: var(--color-lecture);
+}
+
+.legend-btn-text-exercise:hover,
+.legend-btn-text-exercise.active {
+    color: var(--color-exercise);
+    border-bottom-color: var(--color-exercise);
+}
+
+.legend-btn-text-sport:hover,
+.legend-btn-text-sport.active {
+    color: var(--color-sport);
+    border-bottom-color: var(--color-sport);
+}
+
+.schedule-table td.cell-dimmed {
+    opacity: 0.15;
+    transition: opacity 0.3s ease;
+}
+
+/* Hlásenie, ak filter nič nenájde */
+.filter-empty-msg {
+    text-align: center;
+    color: var(--color-title);
+    background-color: var(--color-bg-card);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px auto;
+    max-width: 600px;
+    border: 1px solid var(--color-figcaption);
+}
+
+/* Zvýraznenie bunky, ktorá práve prebieha */
+.schedule-table td.current-lesson {
+    outline: 5px solid var(--color-title);
+    outline-offset: -3px;
+    box-shadow: 0 0 15px var(--color-title);
+    position: relative;
+    font-weight: bold;
+}
+
+
+/* Kontajner (sivé pozadie celej lišty) */
+.progress-bar-wrapper {
+    width: 100%;
+    max-width: 600px;
+    height: 18px;                 /* Povinné: bez výšky by mal kontajner 0px */
+    background-color: var(--color-bg-card); /* Tmavosivý podklad */
+    border-radius: 9px;
+    overflow: hidden;             /* Orezanie, aby výplň nepretekala za zaoblenie */
+    border: 1px solid var(--color-figcaption);
+    margin: 10px auto;
+}
+
+/* Samotná výplň, ktorej JavaScript dynamicky nastavuje width */
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;                    /* Východzia hodnota pred spustením JS */
+    background-color: var(--color-title); /* Sýta zelená farba z premenných */
+    transition: width 0.4s ease;  /* Plynulý nábeh pri načítaní */
+}
+
+.semester-progress-section {
+    margin: 50px auto;
+    max-width: 80%;
+}
+
 
