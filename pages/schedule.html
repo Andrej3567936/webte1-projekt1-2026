@@ -2,10 +2,21 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z1</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- pridal som tu cestu do css suboru -->
-    <link rel="stylesheet" href="../css/print.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Názov a popis špecifický pre túto podstránku -->
+    <title>Kedy ma zastihnete | Andrej Hudačko</title>
+    <meta name="description" content="Môj týždenný univerzitný rozvrh na FEI STU.">
+
+    <!-- Open Graph metadáta pre pekné zdieľanie -->
+    <meta property="og:title" content="Kedy ma zastihnete | Andrej Hudačko">
+    <meta property="og:description" content="Môj týždenný univerzitný rozvrh na FEI STU.">
+    <meta property="og:image" content="../img/profile_img.jpg">
+
+    <!-- Správne cesty k CSS a ikone (bez print.css) -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../favicon_p.png">
+
     
 
 </head>
@@ -16,8 +27,8 @@
             <span class="brand-monogram">AH</span>
             <div class="brand-text">
                 <h1>Andrej Hudačko</h1>
-                <p class="slogan">Študent aplikovanej informatiky</p>
-                <p class="slogan">Weby sú fajn, ale radšej trávim čas vonku.</p>
+                <p class="quote">Študent aplikovanej informatiky</p>
+                <p class="quote">Weby sú fajn, ale radšej trávim čas vonku.</p>
 
             </div>
         </div>
@@ -38,6 +49,7 @@
     </header>
 
     <main class="schedule">
+        <h1>Môj aktuálny rozvrh na FEI STU</h1>
         <!-- Hlásenie o aktuálnej alebo najbližšej hodine -->
         <p id="schedule-status" class="schedule-status">Zisťujem aktuálny rozvrh...</p>
         <p id="filter-empty-msg" class="filter-empty-msg" hidden>Pre zvolený filter sa v rozvrhu nenachádzajú žiadne hodiny.</p>
@@ -69,7 +81,7 @@
                         <th>Pondelok</th>
                         <td colspan="4" class="empty-slot"></td> <!-- 7:00 - 11:00 -->
                         <td colspan="2" data-type="exercise">
-                            <strong>Webové technológie 1</strong><br>K. Žáková
+                            <strong>Webové technológie 1</strong><br>J. Matišák, R. Koiš
                         </td>
                         <td colspan="2" data-type="exercise">
                             <strong>Operačné systémy</strong><br>M. Jókay
@@ -126,8 +138,8 @@
                         <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
                         
                         <!-- Zlúčená bunka pre kolíziu (8:00 - 11:00) -->
-                        <td colspan="2" data-type="exercise" style="font-size: 0.85em;">
-                            <strong>Lineárna algebra 2</strong><br> P. Viceník
+                        <td colspan="2" data-type="exercise">
+                            <strong>Lineárna algebra 2</strong><br>P. Viceník
                         </td>
                     
                     <td colspan="11" class="empty-slot"></td> <!-- 11:00 - 21:00 -->
