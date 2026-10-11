@@ -3,34 +3,43 @@
         display: none !important;
     }
 
-    body, .cv, .cv-left, .cv-right, li, p, span, h1, h2, h3, h4, address, ul {
-        background: transparent !important;
+    body, .cv, .cv-left, .cv-right {
+        background: white !important;
         background-color: white !important;
-        color: black !important; 
+        color: black !important;
         box-shadow: none !important;
-        margin: 30 !important;
-        padding: 0 !important;
+        display: block !important; 
         width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .cv-left {
+        margin-bottom: 40px !important;
+    }
+
+    h1, h2, h3, p, li, span, address, a, strong, em {
+        color: black !important;
         text-align: center !important;
     }
 
     a {
-        color: black !important;
         text-decoration: underline !important;
-        text-align: center;
     }
 
-    li, p, span, strong, em {
-        color: black !important;
-        text-align: center;
-    }
-
+    
     ul {
         text-align: center !important;
-        list-style-position: inside !important; 
-        padding-left: 0 !important; 
+        list-style-position: inside !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-        
+
+    li {
+        margin: 8px 0 !important; 
+        width: auto !important;
+    }
+
     .cv {
         page-break-inside: avoid;
     }

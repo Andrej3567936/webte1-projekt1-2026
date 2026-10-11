@@ -30,11 +30,6 @@
     --space-top: 60px;    
     --space-bottom: 40px;
 
-    
-
-
-
-    
 }   
 
 
@@ -180,10 +175,8 @@ main h1, main h2, main h3 {
 
 .profile {
     max-width: 840px;
-    /*background-color: var(--color-bg-main);*/
     padding: 0px;
     border-radius: var(--radius-win);
-    /*box-shadow: 0 0 30px var(--color-shadow); */
     font-size: 18px;
 
 
@@ -243,53 +236,6 @@ section li {
     color: var(--color-text-main);
 }
 
-@media (max-width: 768px) {     
-
-    .menu-icon {
-        display: block;
-        font-size: 30px;
-        cursor: pointer;
-        color: var(--color-text-main);
-        margin-bottom: 15px;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .menu-checkbox:checked ~ ul {
-        display: flex;
-    }
-
-    main {
-        width: 90%;
-        padding: 30px;
-        margin: 30px auto;
-    }
-
-    main .profile-img {
-        float: none;
-        display: block;
-        margin: 0 auto var(--space) auto;
-    }
-
-    main h2 {
-        text-align: center;
-    }
-
-    section {
-        text-align: center;
-        margin: 25px 25px 25px 25px;
-    }
-
-    .cv {
-        flex-direction: column; 
-        width: 90%;
-    }
-
-}
 
 /*CV*/
 
@@ -372,10 +318,6 @@ section li {
 
 .schedule h1 {
     color: var(--color-title);
-
-    
-    
-
 }
 
 .table-container {
@@ -498,7 +440,6 @@ section li {
 }
 
 
-/* 1. Uprataný hlavný panel (zlúčený z tvojich dvoch pôvodných) */
 .semester-progress-section {
     background-color: var(--color-bg-card);
     padding: 30px; 
@@ -508,7 +449,6 @@ section li {
     max-width: 800px; 
 }
 
-/* 2. Oprava textov a nadpisu vo vnútri panelu */
 .semester-progress-section h2 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -519,7 +459,6 @@ section li {
     font-size: 0.95rem; 
 }
 
-/* 3. Tvoj pôvodný nezmenený kód pre samotný grafický pásik */
 .progress-bar-wrapper {
     width: 100%;
     max-width: 600px;
@@ -640,85 +579,7 @@ section li {
 
 
 
-@media (max-width: 768px) {
-    .workspace-container {
-        margin-bottom: 7.5rem;
-    }
 
-    .hotspot {
-        position: static;
-        width: 0;
-        height: 0;
-        transform: none;
-    }
-
-    
-    .hotspot-dot {
-        position: absolute;
-        left: var(--x);
-        top: var(--y);
-        width: 30px;
-        height: 30px;
-        transform: translate(-50%, -50%); 
-    }
-
-    .hotspot:hover .hotspot-dot,
-    .hotspot:focus-within .hotspot-dot {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    .workspace-container .panel {
-        position: absolute;
-        bottom: auto;
-        top: calc(100% + 15px);
-        left: 0;
-        right: 0;
-        transform: none;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        height: 6rem;
-        overflow-y: auto;
-        text-align: center;
-    }
-
-    
-
-
-    .workspace-container::after {
-        content: "Kliknutím alebo prejdením myšou zistíte viac";
-        position: absolute;
-        bottom: auto;
-        top: calc(100% + 15px);
-        left: 0;
-        right: 0;
-        height: 6rem;
-        background-color: var(--color-bg-card);
-        color: var(--color-text-main);
-        border: 1px solid var(--color-title); 
-        border-radius: var(--radius);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 15px;
-        box-sizing: border-box;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
-
-    .workspace-container:has(.hotspot:hover, .hotspot:focus-within)::after {
-        opacity: 0;
-    }
-
-    .workspace-container:has(.hotspot:hover) .hotspot:not(:hover) .panel {
-        opacity: 0;
-        pointer-events: none;
-    
-    }
-
-}
 
 
 
@@ -841,6 +702,172 @@ section li {
 
 
 @media (max-width: 768px) {
+
+    .menu-icon {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--color-text-main);
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-checkbox:checked ~ ul {
+        display: flex;
+    }
+
+    main {
+        width: 90%;
+        padding: 30px;
+        margin: 30px auto;
+    }
+
+    main h1 {
+        margin-top: 15;
+    }
+
+    main .profile-img {
+        float: none;
+        display: block;
+        margin: 0 auto var(--space) auto;
+    }
+
+    .profile-box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .profile-box p {
+        text-align: center;
+    }
+
+    main h2 {
+        text-align: center;
+    }
+
+    section {
+        text-align: center;
+        margin: 25px 25px 25px 25px;
+    }
+
+    
+
+    .profile, .workspace-container, .map-layout {
+        width: 90%;
+        margin: 0 auto 60px auto;
+    }
+
+    .profile-box {
+        width: auto;
+        margin: 25px 0 25px 0;
+    }
+
+    .cv {
+        flex-direction: column; 
+        width: 90%;
+    }
+
+    main.workspace {
+        width: 98%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+
+
+
+    .workspace-container {
+        margin-bottom: 7.5rem;
+    }
+
+    .hotspot {
+        position: static;
+        width: 0;
+        height: 0;
+        transform: none;
+    }
+
+    
+    .hotspot-dot {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: 30px;
+        height: 30px;
+        transform: translate(-50%, -50%); 
+    }
+
+    .hotspot:hover .hotspot-dot,
+    .hotspot:focus-within .hotspot-dot {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .workspace-container .panel {
+        position: absolute;
+        bottom: auto;
+        top: calc(100% + 15px);
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        height: 6rem;
+        overflow-y: auto;
+        text-align: center;
+    }
+
+    
+
+
+    .workspace-container::after {
+        content: "Kliknutím alebo prejdením myšou zistíte viac";
+        position: absolute;
+        bottom: auto;
+        top: calc(100% + 15px);
+        left: 0;
+        right: 0;
+        height: 6rem;
+        background-color: var(--color-bg-card);
+        color: var(--color-text-main);
+        border: 1px solid var(--color-title); 
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .workspace-container:has(.hotspot:hover, .hotspot:focus-within)::after {
+        opacity: 0;
+    }
+
+    .workspace-container:has(.hotspot:hover) .hotspot:not(:hover) .panel {
+        opacity: 0;
+        pointer-events: none;
+    
+    }
+
+    .schedule-table th, .schedule-table td {
+        font-size: 0.8rem; 
+    }
+    .schedule-table td strong { 
+        font-size: inherit; 
+    }
+
+
     .map-layout {
         flex-direction: column; 
     }
@@ -849,5 +876,15 @@ section li {
         flex: none;
         width: 100%;
         min-height: 350px;
+    }
+
+    main.map-page {
+        width: 98%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .map-intro h2 {
+        margin-top: 15px;
     }
 }

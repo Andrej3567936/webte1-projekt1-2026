@@ -142,12 +142,6 @@ function checkCurrentLesson() {
 
 
 
-
-
-
-
-
-
 function initSemesterProgressBar() {
     const fill = document.getElementById("progress-fill");
     const text = document.getElementById("progress-text");
@@ -220,6 +214,8 @@ function pointsOnImg() {
 
 
 function mapResponsivity() {
+    if(!document.getElementById("map")) return;
+
     const TARGETS = {
         school: { name: "Škola (FEI STU)", lat: 48.1518, lng: 17.0733 },
         home:   { name: "Bydlisko (Prešov)", lat: 48.9984, lng: 21.2339 }
