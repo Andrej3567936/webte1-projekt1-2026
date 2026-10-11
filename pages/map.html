@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Názov a popis špecifický pre túto podstránku -->
     <title>Kde ma nájdete | Andrej Hudačko</title>
     <meta name="description" content="Interaktívna mapa s mojím bydliskom a školou.">
 
-    <!-- Open Graph metadáta pre pekné zdieľanie -->
     <meta property="og:title" content="Kde ma nájdete | Andrej Hudačko">
     <meta property="og:description" content="Interaktívna mapa s mojím bydliskom a školou.">
     <meta property="og:image" content="../img/profile_img.jpg">
 
-    <!-- Správne cesty k CSS a ikone -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/png" href="../favicon_p.png">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" >
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </head>
 <body>
@@ -47,27 +47,27 @@
 
     <main class="map-page">
 
-        
+        <div class="map-intro">
+            <h1>Nájdete ma na FEI STU v Bratislave alebo doma v Prešove.</h1>
+            <p>Pomocou tejto interaktívnej mapy zistíte, ako ďaleko sme od seba.</p>
+        </div>
+
+
         <div class="map-layout">
-            <!-- Priestor pre samotnú mapu -->
             <div id="map" class="map-view"></div>
 
-            <!-- Panel s ovládaním a výsledkami -->
             <aside class="map-sidebar">
                 
-                <!-- PRÁZDNY STAV (Zobrazí sa na začiatku) -->
                 <div id="map-empty-state">
-                    <h3>Nemáte žiadne vlastné body</h3>
+                    <h2>Nemáte žiadne vlastné body</h2>
                     <p><strong>Kliknite kdekoľvek na mapu</strong>, zadajte názov miesta a pridajte si ho do zoznamu.</p>
                 </div>
 
-                <!-- OVLÁDACÍ PANEL (Zobrazí sa, keď pridáme aspoň 1 bod) -->
                 <div id="map-controls" hidden>
-                    <h3>Vypočítať vzdialenosť</h3>
+                    <h2>Vypočítať vzdialenosť</h2>
                     
                     <label for="custom-points">Z bodu:</label>
                     <select id="custom-points" class="map-select">
-                        <!-- Sem JS vygeneruje pridané body -->
                     </select>
 
                     <label for="target-points">Do cieľa:</label>
@@ -78,12 +78,14 @@
 
                     <button id="btn-calculate" class="btn-primary">Zobraziť trasu</button>
 
+                    <div class="clear-button">
+                        <a href="#" id="btn-clear-points" class="clear-link">vymazať moje body</a>
+                    </div>
+
                     <div id="distance-result" class="distance-result" hidden>
-                        <!-- Sem sa vypíše výsledok -->
                     </div>
                 </div>
                 
-                <!-- Povinné zdroje podľa zadania -->
                 <div class="map-credits">
                     <small>Zdroje: <a href="https://leafletjs.com/" target="_blank">Leaflet</a> | <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a></small>
                 </div>
@@ -91,19 +93,11 @@
         </div>
     </main>
 
-    <!-- Knižnica Leaflet (CSS + JS) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Tvoj skript -->
-    <script src="../js/map.js"></script>
-
-
-     
     
     <footer>
-        <address>Kontakt: <a href="mailto: andrej.hudacko@gmail.com">andrej.hudacko@gmail.com </a> </address>
-        <p>2026</p>
-        <p>zdroje: <a href="https://www.wikipedia.org/">wikipedia.com</a></p>
+        <address>Kontakt: <a href="mailto:andrej.hudacko@gmail.com">andrej.hudacko@gmail.com</a></address>
+        <p>&copy; 2026</p>
+        <p>Zdroje: Vlastné fotografie | Mapové podklady: <a href="https://www.openstreetmap.org/copyright" target="_blank">OSM</a> & <a href="https://leafletjs.com/" target="_blank">Leaflet</a></p>
     </footer>
     <script src="../js/script.js"></script>
 

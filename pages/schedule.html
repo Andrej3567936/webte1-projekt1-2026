@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Názov a popis špecifický pre túto podstránku -->
     <title>Kedy ma zastihnete | Andrej Hudačko</title>
     <meta name="description" content="Môj týždenný univerzitný rozvrh na FEI STU.">
 
-    <!-- Open Graph metadáta pre pekné zdieľanie -->
     <meta property="og:title" content="Kedy ma zastihnete | Andrej Hudačko">
     <meta property="og:description" content="Môj týždenný univerzitný rozvrh na FEI STU.">
     <meta property="og:image" content="../img/profile_img.jpg">
 
-    <!-- Správne cesty k CSS a ikone (bez print.css) -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/png" href="../favicon_p.png">
 
@@ -41,7 +38,7 @@
                 <li><a href="../index.html">Profil</a></li>
                 <li><a href="../pages/cv.html">Životopis</a></li>
                 <li><a href="../pages/workspace.html">Moje pracovné prostredie</a></li>
-                <li><a href="../pages/schedule.html"class="active">Kedy ma zastihnete</a></li>
+                <li><a href="../pages/schedule.html" class="active">Kedy ma zastihnete</a></li>
                 <li><a href="../pages/map.html">Kde ma nájdete</a></li>
             </ul>
 
@@ -50,7 +47,6 @@
 
     <main class="schedule">
         <h1>Môj aktuálny rozvrh na FEI STU</h1>
-        <!-- Hlásenie o aktuálnej alebo najbližšej hodine -->
         <p id="schedule-status" class="schedule-status">Zisťujem aktuálny rozvrh...</p>
         <p id="filter-empty-msg" class="filter-empty-msg" hidden>Pre zvolený filter sa v rozvrhu nenachádzajú žiadne hodiny.</p>
         <div class="table-container">
@@ -76,10 +72,9 @@
                 </thead>
                 <tbody>
                     
-                    <!-- PONDELOK -->
                     <tr data-day="1">
                         <th>Pondelok</th>
-                        <td colspan="4" class="empty-slot"></td> <!-- 7:00 - 11:00 -->
+                        <td colspan="4" class="empty-slot"></td> 
                         <td colspan="2" data-type="exercise">
                             <strong>Webové technológie 1</strong><br>J. Matišák, R. Koiš
                         </td>
@@ -89,60 +84,55 @@
                         <td colspan="2" data-type="lecture">
                             <strong>Lineárna algebra 2</strong><br>J. Šiagiová
                         </td>
-                        <td colspan="4" class="empty-slot"></td> <!-- 17:00 - 21:00 -->
+                        <td colspan="4" class="empty-slot"></td> 
                     </tr>
 
-                    <!-- UTOROK -->
                     <tr data-day="2">
                         <th>Utorok</th>
-                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        <td class="empty-slot"></td> 
                         <td colspan="2" data-type="lecture">
                             <strong>Analýza a zlož. algoritmov</strong><br>M. Bečka
                         </td>
                         <td colspan="2" data-type="lecture">
                             <strong>Webové technológie 1</strong><br>K. Žáková
                         </td>
-                        <td class="empty-slot"></td> <!-- 12:00 - 13:00 -->
+                        <td class="empty-slot"></td> 
                         <td colspan="2" data-type="sport">
                             <strong>Telesná kultúra 5</strong><br>K. Hižnayová
                         </td>
-                        <td colspan="6" class="empty-slot"></td> <!-- 15:00 - 21:00 -->
+                        <td colspan="6" class="empty-slot"></td> 
                     </tr>
 
-                    <!-- STREDA -->
                     <tr data-day="3">
                         <th>Streda</th>
-                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        <td class="empty-slot"></td> 
                         <td colspan="2" data-type="lecture">
                             <strong>Operačné systémy</strong><br>M. Jókay
                         </td>
                         <td colspan="2" data-type="lecture">
                             <strong>Analýza a zlož. algoritmov</strong><br>M. Bečka
                         </td>
-                        <td colspan="2" class="empty-slot"></td> <!-- 12:00 - 14:00 -->
+                        <td colspan="2" class="empty-slot"></td> 
                         <td colspan="2" data-type="lecture">
                             <strong>Webové technológie 1</strong><br>K. Žáková
                         </td>
-                        <td colspan="5" class="empty-slot"></td> <!-- 16:00 - 21:00 -->
+                        <td colspan="5" class="empty-slot"></td>
                     </tr>
 
-                    <!-- ŠTVRTOK -->
                     <tr data-day="4">
                         <th>Štvrtok</th>
-                        <td colspan="14" class="empty-slot"></td> <!-- Celý deň voľno -->
+                        <td colspan="14" class="empty-slot"></td> 
                     </tr>
 
-                    <!-- PIATOK -->
                     <tr data-day="5">
                         <th>Piatok</th>
-                        <td class="empty-slot"></td> <!-- 7:00 - 8:00 -->
+                        <td class="empty-slot"></td> 
                         
-                        <!-- Zlúčená bunka pre kolíziu (8:00 - 11:00) -->
                         <td colspan="2" data-type="exercise">
                             <strong>Lineárna algebra 2</strong><br>P. Viceník
                         </td>
                     
-                    <td colspan="11" class="empty-slot"></td> <!-- 11:00 - 21:00 -->
+                    <td colspan="11" class="empty-slot"></td> 
                     </tr>
 
                 </tbody>
@@ -160,9 +150,8 @@
         </p>
 
 
-        <!-- Progress bar semestra -->
         <section class="semester-progress-section">
-            <h3>Priebeh semestra</h3>
+            <h2>Priebeh semestra</h2>
             <div class="progress-bar-wrapper">
                 <div id="progress-fill" class="progress-bar-fill"></div>
             </div>
@@ -173,9 +162,9 @@
     </main>
     
     <footer>
-        <address>Kontakt: <a href="mailto: andrej.hudacko@gmail.com">andrej.hudacko@gmail.com </a> </address>
-        <p>2026</p>
-        <p>zdroje: <a href="https://www.wikipedia.org/">wikipedia.com</a></p>
+        <address>Kontakt: <a href="mailto:andrej.hudacko@gmail.com">andrej.hudacko@gmail.com</a></address>
+        <p>&copy; 2026</p>
+        <p>Zdroje: Vlastné fotografie | Mapové podklady: <a href="https://www.openstreetmap.org/copyright" target="_blank">OSM</a> & <a href="https://leafletjs.com/" target="_blank">Leaflet</a></p>
     </footer>
     <script src="../js/script.js"></script>
 </body>

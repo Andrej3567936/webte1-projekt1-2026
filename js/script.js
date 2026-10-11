@@ -2,36 +2,32 @@ const SEMESTER_START = new Date("2026-09-14T00:00:00");
 const SEMESTER_END = new Date("2026-12-11T23:59:59");
 
 
-
-
-
-
-document.addEventListener("DOMContentLoaded", function() { //web zacne vykonavat tuto funkciu az ked docita cely html kod
-    initScheduleFilter(); //
-    checkCurrentLesson();//jednotlive funckie
+document.addEventListener("DOMContentLoaded", function() { 
+    initScheduleFilter(); 
+    checkCurrentLesson();
     initSemesterProgressBar();
     pointsOnImg();
     mapResponsivity();
 })
 
 function initScheduleFilter() {
-    const filterButtons = document.querySelectorAll(".legend-btn"); //prejde html a vytvori pole(nodelist) vsetkych objektov button
-    const scheduleCells = document.querySelectorAll(".schedule-table td[data-type]"); //pole pre vsetky td co maju udaj data-type
+    const filterButtons = document.querySelectorAll(".legend-btn"); 
+    const scheduleCells = document.querySelectorAll(".schedule-table td[data-type]"); 
     const emptyMsg = document.getElementById("filter-empty-msg");
 
-    filterButtons.forEach(function (button) { //prejde tlacidla a kazdeho obvjekt priradi do premenjje objekt
-        button.addEventListener("click", function() { //caka kym user stlaci na tlacidlo, potm toto vykona
-            filterButtons.forEach(function (btn) { //konkretne tlacidlo ulozi do premennej btn
+    filterButtons.forEach(function (button) { 
+        button.addEventListener("click", function() { 
+            filterButtons.forEach(function (btn) { 
                 btn.classList.remove("active");
             });
 
             button.classList.add("active");
 
-            const chosenFilter = button.getAttribute("data-filter"); //na button mame kliknute, zistim jeho atribut data-filter, do chosen-filter ulozi co je to za typ 
+            const chosenFilter = button.getAttribute("data-filter"); 
             let matchCount = 0
 
-            scheduleCells.forEach(function (cell) { //cell je premenna pre okna v rozvrhu
-                const cellType = cell.getAttribute("data-type");  //zisti co je to za typ 
+            scheduleCells.forEach(function (cell) { 
+                const cellType = cell.getAttribute("data-type");  
 
                 if (chosenFilter === "all" || cellType === chosenFilter) {
                     cell.classList.remove("cell-dimmed"); 
@@ -48,14 +44,11 @@ function initScheduleFilter() {
                     emptyMsg.hidden = true;
                 }
 
-
-                
             }
         });
     });
 }
 
-// Dátové štruktúry: pole objektov s časmi hodín podľa tvojho rozvrhu
 const LESSONS = [
     { day: 1, startH: 11, startM: 0, endH: 12, endM: 40, title: "Webové technológie 1" },
     { day: 1, startH: 13, startM: 0, endH: 14, endM: 40, title: "Operačné systémy" },
@@ -85,14 +78,12 @@ function checkCurrentLesson() {
 
     let ongoing = null;
 
-    // Najprv odstránime triedu current-lesson z predchádzajúcich buniek
     const allCells = document.querySelectorAll(".schedule-table td[data-type]");
     allCells.forEach(function (cell) {
         cell.classList.remove("current-lesson");
     });
 
-    // Zistenie, či práve prebieha hodina
-    LESSONS.forEach(function (lesson) { //kazdu z hodin na chvilu hodi do premennej lesson
+    LESSONS.forEach(function (lesson) { 
         const start = lesson.startH * 60 + lesson.startM;
         const end = lesson.endH * 60 + lesson.endM;
 
@@ -114,8 +105,7 @@ function checkCurrentLesson() {
 
         });
 
-    } else { //ak neprebieha rn hodina
-        // Hľadanie najbližšej hodiny
+    } else { 
         let nextLesson = null;
         let minDiff = Infinity;
 
@@ -132,7 +122,7 @@ function checkCurrentLesson() {
                 totalDiff = totalDiff + (7 * 24 * 60);
             }
 
-            if (totalDiff < minDiff) { //hladame minium rozdiel teda hodinu s nmajmensim rozdielom aktualneho casu s jej zaciatkom
+            if (totalDiff < minDiff) { 
                 minDiff = totalDiff;
                 nextLesson = lesson;
             }
@@ -140,7 +130,7 @@ function checkCurrentLesson() {
 
         if (nextLesson !== null) {
             let formatM = nextLesson.startM;
-            if (formatM < 10) { //osetrenie naj nevypise 7:9 ale 7:09
+            if (formatM < 10) { 
                 formatM = "0" + formatM;
             }
             statusBox.textContent = "Aktuálne neprebieha žiadna výučba. Najbližšia hodina: " +
@@ -169,9 +159,9 @@ function initSemesterProgressBar() {
     const now = new Date();
     const totalTime = SEMESTER_END.getTime() - SEMESTER_START.getTime();
     const elapsedTime = now.getTime() - SEMESTER_START.getTime();
-    const daysTillEnd = Math.ceil((totalTime - elapsedTime)/(1000*60*60*24)); //time dava v milisekundach
+    const daysTillEnd = Math.ceil((totalTime - elapsedTime)/(1000*60*60*24)); 
 
-    let percent = Math.floor((elapsedTime / totalTime) * 100); //zaokruhli nadol
+    let percent = Math.floor((elapsedTime / totalTime) * 100);
 
     if (percent < 0) {
         percent = 0;
@@ -188,7 +178,7 @@ function initSemesterProgressBar() {
 
 function pointsOnImg() {
     const WORKSPACE_ITEMS = [
-        { id: "ipad", title: "iPad", desc: "Využívam na písanie poznámok a prípravu na zápočty.", left: 14, top: 68 },
+        { id: "ipad", title: "iPad", desc: "Využívam na písanie poznámok a efektívne hľadanie riešení.", left: 14, top: 68 },
         { id: "keyboard", title: "Klávesnica", desc: "Mechanická low-profile Kechychron K3 MAX.", left: 45, top: 85 },
         { id: "mouse", title: "Myš", desc: "Logitech MX Master 3s", left: 65, top: 76 },
         { id: "macbook", title: "MacBook", desc: "Macbook Air M1 - powerhouse celého setupu.", left: 45, top: 62 },
@@ -201,19 +191,15 @@ function pointsOnImg() {
     if (!container) return;
 
     WORKSPACE_ITEMS.forEach(function(item) {
-        // 1. Neviditeľný obal
         const hotspot = document.createElement("div");
         hotspot.classList.add("hotspot");
-        // Súradnice zapíšeme ako CSS premenné
         hotspot.style.setProperty("--x", item.left + "%");
         hotspot.style.setProperty("--y", item.top + "%");
 
-        // 2. Samotný zelený krúžok (reálne tlačidlo pre klikanie/fokus)
         const dot = document.createElement("button");
         dot.classList.add("hotspot-dot");
         dot.setAttribute("tabindex", "0");
 
-        // 3. Panel s textom
         const panel = document.createElement("div");
         panel.classList.add("panel");
 
@@ -226,7 +212,6 @@ function pointsOnImg() {
         panel.appendChild(title);
         panel.appendChild(desc);
         
-        // Všetko pekne poskladáme
         hotspot.appendChild(dot);
         hotspot.appendChild(panel);
         container.appendChild(hotspot);
@@ -239,6 +224,8 @@ function mapResponsivity() {
         school: { name: "Škola (FEI STU)", lat: 48.1518, lng: 17.0733 },
         home:   { name: "Bydlisko (Prešov)", lat: 48.9984, lng: 21.2339 }
     };
+    
+    const btnClear = document.getElementById("btn-clear-points");
 
     let savedPoints = JSON.parse(localStorage.getItem("myMapPoints")) || [];
 
@@ -247,17 +234,14 @@ function mapResponsivity() {
 
     const map = L.map('map').setView([48.7, 19.3], 7);
 
-    // Načítanie podkladu (OpenStreetMap)
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
     }).addTo(map);
 
-    // Vyznačenie trvalých bodov na mape
     L.marker([TARGETS.school.lat, TARGETS.school.lng]).addTo(map).bindPopup("<b>" + TARGETS.school.name + "</b>");
     L.marker([TARGETS.home.lat, TARGETS.home.lng]).addTo(map).bindPopup("<b>" + TARGETS.home.name + "</b>");
 
-    // Elementy HTML rozhrania
     const emptyState = document.getElementById("map-empty-state");
     const controls = document.getElementById("map-controls");
     const selectCustom = document.getElementById("custom-points");
@@ -268,19 +252,15 @@ function mapResponsivity() {
     renderSavedPoints();
 
     map.on('click', function (e) {
-        // e.latlng obsahuje súradnice, kam používateľ klikol
         const lat = e.latlng.lat;
         const lng = e.latlng.lng;
 
-        // Vyskakovacie okno pre zadanie názvu (jednoduchý prompt)
-        const pointName = prompt("Zadajte názov pre toto miesto:");
+        const pointName = prompt("Zadajte názov miesta:");
 
-        // Ak používateľ stlačil Zrušiť alebo nevyplnil nič, neurobíme nič
         if (!pointName || pointName.trim() === "") return;
 
-        // Vytvoríme objekt bodu a pridáme ho do poľa
         const newPoint = {
-            id: Date.now(), // Unikátne ID (čas)
+            id: Date.now(), 
             name: pointName.trim(),
             lat: lat,
             lng: lng
@@ -288,77 +268,58 @@ function mapResponsivity() {
 
         savedPoints.push(newPoint);
 
-        // Uloženie do localStorage, aby to prežilo F5 (Refresh)
         localStorage.setItem("myMapPoints", JSON.stringify(savedPoints));
 
-        // Aktualizácia UI a mapy
         renderSavedPoints();
     });
 
-    // ===================================================
-    // VYKRESLENIE BODOV DO VÝBERU A NA MAPU
-    // ===================================================
+   
     function renderSavedPoints() {
-        // Najprv vyčistíme mapu od starých custom značiek
         pointMarkers.forEach(marker => map.removeLayer(marker));
-        pointMarkers.length = 0; // Vyprázdnime pole
+        pointMarkers.length = 0; 
 
-        // Vyčistíme dropdown s výberom
         selectCustom.innerHTML = "";
 
         if (savedPoints.length === 0) {
-            // Prázdny stav - ukáž inštrukcie, skry ovládanie
             emptyState.hidden = false;
             controls.hidden = true;
         } else {
-            // Máme body - skry inštrukcie, ukáž ovládanie
             emptyState.hidden = true;
             controls.hidden = false;
 
-            // Pridáme body do dropdownu a na mapu
             savedPoints.forEach(function (pt) {
-                // Do Selectu
                 const option = document.createElement("option");
                 option.value = pt.id;
                 option.textContent = pt.name;
                 selectCustom.appendChild(option);
 
-                // Na Mapu
                 const marker = L.marker([pt.lat, pt.lng]).addTo(map).bindPopup(pt.name);
                 pointMarkers.push(marker);
             });
         }
     }
 
-    // ===================================================
-    // VÝPOČET A ZOBRAZENIE SPOJNICE (PO KLIKNUTÍ NA TLAČIDLO)
-    // ===================================================
     btnCalc.addEventListener("click", function () {
         const selectedId = Number(selectCustom.value);
-        const selectedTargetKey = selectTarget.value; // "school" alebo "home"
+        const selectedTargetKey = selectTarget.value; 
 
-        // Nájdeme objekty z polí
         const startPoint = savedPoints.find(p => p.id === selectedId);
         const endPoint = TARGETS[selectedTargetKey];
 
         if (!startPoint || !endPoint) return;
 
-        // Vlastný výpočet vzdialenosti (Haversinov vzorec)
         const distanceKm = haversineDistance(startPoint.lat, startPoint.lng, endPoint.lat, endPoint.lng);
 
-        // Zobrazenie výsledku do HTML
         resultBox.hidden = false;
         resultBox.innerHTML = `
             <strong>Trasa:</strong> ${startPoint.name} &rarr; ${endPoint.name}<br>
             <strong>Vzdialenosť (vzdušnou čiarou):</strong> ${distanceKm.toFixed(2)} km
         `;
 
-        // Zmazanie starej čiary, ak existuje
         if (currentPolyline) {
             map.removeLayer(currentPolyline);
         }
 
-        // Vykreslenie novej čiary (spojnice) - v zadaní je to výslovne požadované
         const latlngs = [
             [startPoint.lat, startPoint.lng],
             [endPoint.lat, endPoint.lng]
@@ -366,15 +327,12 @@ function mapResponsivity() {
 
         currentPolyline = L.polyline(latlngs, { color: 'var(--color-title)', weight: 4 }).addTo(map);
 
-        // Mapa sa plynulo posunie tak, aby bolo vidieť celú čiaru
         map.fitBounds(currentPolyline.getBounds(), { padding: [50, 50] });
     });
 
-    // ===================================================
-    // HAVERSINOV VZOREC (Vlastný kód na výpočet vzdialenosti)
-    // ===================================================
+   
     function haversineDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371; // Polomer Zeme v kilometroch
+        const R = 6371; 
         const dLat = (lat2 - lat1) * Math.PI / 180;
         const dLon = (lon2 - lon1) * Math.PI / 180;
         
@@ -383,7 +341,27 @@ function mapResponsivity() {
                   Math.sin(dLon / 2) * Math.sin(dLon / 2);
                   
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c; // Výsledok v km
+        return R * c; 
+    }
+    
+  
+    if (btnClear) {
+        btnClear.addEventListener("click", function (e) {
+            e.preventDefault(); 
+            
+            localStorage.removeItem("myMapPoints");
+            
+            savedPoints = [];
+            
+            if (currentPolyline) {
+                map.removeLayer(currentPolyline);
+                currentPolyline = null;
+            }
+            
+            resultBox.hidden = true;
+            
+            renderSavedPoints();
+        });
     }
 }
 

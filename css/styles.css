@@ -1,24 +1,22 @@
 @font-face {
     font-family: 'CustomFont';
-    src: url(fonts/Google_Sans/static/GoogleSans-VariableFont_GRAD,opsz,wght.ttf) format("truetype");
+    src: url(../fonts/junction-master/webfonts/junction-regular.woff2) format("woff2");
 }
 
 :root {
     --color-bg-body: #121214;
     --color-bg-card: #26262b;
     --color-title: #34d399;
-    --color-text-muted: #ffffff;
-    --color-text-main: #a1a1aa;
+    --color-text-main: #ffffff;
+    --color-text-mutedd: #a1a1aa;
     --color-bg-main: #1a1a1e;
     --color-figcaption: #71717a;
     --color-shadow: rgba(0, 0, 0);
 
-    /* Plné sýte farby pre text a zvýraznenie */
-    --color-lecture: #60a5fa;   /* Jasná modrá */
-    --color-exercise: #34d399;  /* Jasná zelená */
-    --color-sport: #fbbf24;     /* Jasná žltá/oranžová */
+    --color-lecture: #60a5fa;  
+    --color-exercise: #34d399;  
+    --color-sport: #fbbf24;    
 
-    /* Priesvitné podklady pre bunky tabuľky (35 % priehľadnosť) */
     --color-lecture-bg: rgba(96, 165, 250, 0.22);
     --color-exercise-bg: rgba(52, 211, 153, 0.22);
     --color-sport-bg: rgba(251, 191, 36, 0.22);
@@ -27,12 +25,17 @@
     --radius-win: 12px;
     --space: 20px;
 
+    --heading-gap: 10px;
+
+    --space-top: 60px;    
+    --space-bottom: 40px;
+
     
 
 
 
     
-}   /* Jemná oranžová */
+}   
 
 
 body {
@@ -42,8 +45,8 @@ body {
     padding: 0;
 }
 
-a:link { color: var(--color-text-muted); text-decoration: none; }
-a:visited { color: var(--color-text-muted); text-decoration: none; }
+a:link { color: var(--color-text-main); text-decoration: none; }
+a:visited { color: var(--color-text-main); text-decoration: none; }
 a:focus { color: var(--color-title); text-decoration: none; }
 a:hover { color: var(--color-title); text-decoration: none; }
 a:active { color: var(--color-title); text-decoration: none; }
@@ -51,7 +54,7 @@ a:active { color: var(--color-title); text-decoration: none; }
 /*-L-V-F-H-A-*/
 header, footer {
     background-color: var(--color-bg-card);
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
@@ -86,7 +89,7 @@ header h1 {
 .quote {
     margin: 5px 0 0 0;
     font-size: 15px;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     text-align: left;
 }
 
@@ -101,7 +104,7 @@ nav ul{
 }
 
 nav a {
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     text-decoration: none;
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
@@ -125,7 +128,7 @@ nav a.active {
 
 section {
     background-color: var(--color-bg-card);
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     padding: 25px;
     margin-bottom: 25px;
     border-radius: var(--radius-win);
@@ -140,29 +143,63 @@ section p {
     margin: 10px 0;
 }
 
+main h1 {
+    font-size: 1.7rem; 
+    color: var(--color-title);
+    text-align: center;
+    margin: var(--space-top) auto 10px auto;
+}
+
+main p, .map-intro p {
+    text-align: center;
+    color: var(--color-text-main);
+    margin: 0 auto var(--space-bottom) auto;
+}
+
+
+main h2 {
+    font-size: 1.7rem; 
+    color: var(--color-title);
+    margin-bottom: 15px;
+}
+
+main h3 {
+    font-size: 1.7rem; 
+    color: var(--color-title);
+    text-align: center;
+}
+
+main h1, main h2, main h3 {
+    margin-bottom: var(--heading-gap);
+}
+
+.profile, .workspace-container, .map-layout {
+    width: 75%;
+    margin: 0 auto 60px auto;
+}
 
 .profile {
-    width: 75%;
     max-width: 840px;
-    margin: 60px auto;
-    background-color: var(--color-bg-main);
-    color: var(--color-text-main);
-    padding: 80px;
+    /*background-color: var(--color-bg-main);*/
+    padding: 0px;
     border-radius: var(--radius-win);
-    box-shadow: 0 0 30px var(--color-shadow);
+    /*box-shadow: 0 0 30px var(--color-shadow); */
     font-size: 18px;
 
+
 }
 
-.profile h2 {
-    color: var(--color-title);
-    margin-top: 0;
-    font-size: 30px;
+
+.profile p {
     text-align: left;
+    margin-bottom: 15px;
 }
 
+.profile h1 {
+    margin: var(--space-top) auto var(--space-bottom) auto;
+}
 
- .profile-img{
+.profile-img{
     max-width: 100%;
     height: auto;
     float: left;
@@ -171,19 +208,18 @@ section p {
     margin-right: 30px; 
 }
 
-main h3 {
-    color: var(--color-title);
-    margin-top: 0;
-    font-size: 30px;
-    text-align: center;
+.profile-box {
+    box-shadow: 0 0 30px var(--color-shadow);
 }
 
+
 section ul {
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     margin-bottom: 25px;
     text-align: center;
     list-style-position: inside;
-    padding-right: 50px
+    padding-right: 50px;
+
 }
 
 section li {
@@ -192,7 +228,7 @@ section li {
 }
 
 .profile-quote {
-    background-color: var(--color-bg-body);
+    background-color: var(--color-bg-main);
     border-left: 14px solid var(--color-title);
     padding: 15px 5px;
     border-radius: var(--radius) ;
@@ -204,7 +240,7 @@ section li {
 
 .profile-quote blockquote {
     margin: 0;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
 }
 
 @media (max-width: 768px) {     
@@ -213,7 +249,7 @@ section li {
         display: block;
         font-size: 30px;
         cursor: pointer;
-        color: var(--color-text-muted);
+        color: var(--color-text-main);
         margin-bottom: 15px;
     }
 
@@ -249,7 +285,7 @@ section li {
     }
 
     .cv {
-        flex-direction: column; /* Na mobile dá stĺpce pod seba */
+        flex-direction: column; 
         width: 90%;
     }
 
@@ -258,11 +294,11 @@ section li {
 /*CV*/
 
 .cv {
-    display: flex;             /* flexbox */
+    display: flex;         
     align-items: stretch;      
     width: 75%;
     max-width: 1000px;
-    margin: 60px auto;
+    margin: var(--space-top) auto 60px auto;
     border-radius: var(--radius-win);
     overflow: hidden;        
     box-shadow: 0 0 30px var(--color-shadow);
@@ -278,6 +314,8 @@ section li {
     background-color: var(--color-bg-card);
     padding: 40px;
     text-align: center;
+    line-height: 1.6;
+
 }
 
 .cv-left img {
@@ -289,7 +327,7 @@ section li {
 
 .cv-left address {
     font-style: normal;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     text-align: center;
 }
 
@@ -297,12 +335,18 @@ section li {
     flex: 2;                
     background-color: var(--color-bg-main);
     padding: 40px;
+    color: var(--color-text-main);
+}
+
+.cv-right h2 {
+    color: var(--color-title);
 }
 
 .cv-right ul {
     list-style-position: inside;
     padding-right: 50px;
     text-align: left;
+    line-height: 1.6;
 }
 
 .cv-right ul, .cv-right li {
@@ -316,18 +360,21 @@ section li {
 }
 
 
-/*tabulka*/
 .schedule {
-    max-width: 100%;
-    margin: 60px;
-    color: var(--color-text-muted);
+    max-width: 1500px;
+    width: 92%;
+    color: var(--color-text-main);
     text-align: center;
+    margin: 0 auto 60px auto;
     
 
 }
 
 .schedule h1 {
     color: var(--color-title);
+
+    
+    
 
 }
 
@@ -336,17 +383,19 @@ section li {
     width: 100%;
     background-color: var(--color-bg-main);
     border-radius: var(--radius-win);
-    scrollbar-color: var(--color-text-muted) var(--color-bg-card);
+    scrollbar-color: var(--color-text-main) var(--color-bg-card);
+    margin: 0 auto 20px auto;
 }
+
 
 .schedule-table {
     width: 100%;
-    border-collapse: collpase;
-    min-width: 700px;
-    color: var(--color-text-muted);
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 900px;
+    color: var(--color-text-main);
     text-align: center;
     
-
 }
 
 .schedule-table th, .schedule-table td {
@@ -355,15 +404,18 @@ section li {
     text-align: center;
 }
 
+.schedule-table th:first-child {
+    width: 80px;
+}
+
+
 .schedule-table tbody tr:nth-of-type(odd) {
     background-color: var(--color-bg-body);
 }
-/* Prednášky - jemná verzia tvojej brand farby */
-/* Prednášky */
-/* Podfarbenie buniek v tabuľke */
+
 .schedule-table td[data-type="lecture"] {
   background-color: var(--color-lecture-bg);
-  color: inherit; /* Biely, ostrý text */
+  color: inherit; 
 }
 
 .schedule-table td[data-type="exercise"] {
@@ -376,7 +428,6 @@ section li {
   color: inherit;
 }
 
-/* Názvy predmetov v bunkách */
 .schedule-table td strong {
   display: block;
   margin-bottom: 3px;
@@ -384,27 +435,24 @@ section li {
 }
 
 
-
-
-
 .legend-btn {
     background: none;
     border: none;
     font-family: inherit;
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     cursor: pointer;
     padding: 2px 4px;
     border-bottom: 2px solid transparent;
     transition: color 0.2s ease, border-color 0.2s ease;
     
+    
 }
 
-/* Hover a aktívny stav pre jednotlivé typy */
 .legend-btn-all:hover,
 .legend-btn-all.active {
-    color: var(--color-text-main);
-    border-bottom-color: var(--color-text-main);
+    color: var(--color-text-mutedd);
+    border-bottom-color: var(--color-text-mutedd);
 }
 
 .legend-btn-text-lecture:hover,
@@ -430,7 +478,6 @@ section li {
     transition: opacity 0.3s ease;
 }
 
-/* Hlásenie, ak filter nič nenájde */
 .filter-empty-msg {
     text-align: center;
     color: var(--color-title);
@@ -442,7 +489,6 @@ section li {
     border: 1px solid var(--color-figcaption);
 }
 
-/* Zvýraznenie bunky, ktorá práve prebieha */
 .schedule-table td.current-lesson {
     outline: 5px solid var(--color-title);
     outline-offset: -3px;
@@ -452,47 +498,49 @@ section li {
 }
 
 
+/* 1. Uprataný hlavný panel (zlúčený z tvojich dvoch pôvodných) */
 .semester-progress-section {
+    background-color: var(--color-bg-card);
+    padding: 30px; 
+    border-radius: var(--radius-win);
     box-shadow: 0 0 30px var(--color-shadow);
+    margin: 30px auto 60px auto; 
+    max-width: 800px; 
 }
 
-/* Kontajner (sivé pozadie celej lišty) */
+/* 2. Oprava textov a nadpisu vo vnútri panelu */
+.semester-progress-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.semester-progress-section p {
+    margin: 5px 0 0 0; 
+    font-size: 0.95rem; 
+}
+
+/* 3. Tvoj pôvodný nezmenený kód pre samotný grafický pásik */
 .progress-bar-wrapper {
     width: 100%;
     max-width: 600px;
-    height: 18px;                 /* Povinné: bez výšky by mal kontajner 0px */
-    background-color: var(--color-bg-card); /* Tmavosivý podklad */
+    height: 18px;                 
+    background-color: var(--color-bg-card); 
     border-radius: 9px;
-    overflow: hidden;             /* Orezanie, aby výplň nepretekala za zaoblenie */
+    overflow: hidden;             
     border: 1px solid var(--color-figcaption);
     margin: 10px auto;
-
 }
 
-
-
-/* Samotná výplň, ktorej JavaScript dynamicky nastavuje width */
 .progress-bar-fill {
     height: 100%;
-    width: 0%;                    /* Východzia hodnota pred spustením JS */
-    background-color: var(--color-title); /* Sýta zelená farba z premenných */
-    transition: width 0.4s ease;  /* Plynulý nábeh pri načítaní */
-}
-
-.semester-progress-section {
-    margin: 50px auto;
-    max-width: 80%;
+    width: 0%;                    
+    background-color: var(--color-title); 
 }
 
 
-/* =======================================================
-   WORKSPACE - DESKTOP
-   ======================================================= */
 .workspace-container {
     position: relative;
-    width: 92%;
     max-width: 900px;
-    margin: 60px auto 60px auto;
     overflow: visible;
     padding: 0;
 
@@ -503,6 +551,8 @@ section li {
     text-align: center;
 }
 
+
+
 .workspace-img {
     width: 100%;
     height: auto;
@@ -512,18 +562,16 @@ section li {
 
 }
 
-/* 1. Obal bodu - na PC pozíciovaný */
 .hotspot {
     position: absolute;
     left: var(--x);
     top: var(--y);
     width: 30px;
     height: 30px;
-    transform: translate(-50%, -50%); /* Centrovanie celého obalu */
+    transform: translate(-50%, -50%); 
     z-index: 5;
 }
 
-/* 2. Samotný zelený krúžok */
 .hotspot-dot {
     width: 100%;
     height: 100%;
@@ -535,7 +583,6 @@ section li {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover na obale zväčší krúžok */
 .hotspot:hover,
 .hotspot:focus-within {
     z-index: 20;
@@ -543,12 +590,11 @@ section li {
 
 .hotspot:hover .hotspot-dot,
 .hotspot:focus-within .hotspot-dot {
-    background-color: rgba(52, 211, 153, 0.8);
+    background-color: var(--color-title);
     transform: scale(1.2);
     outline: none;
 }
 
-/* 3. Panel (na PC vyskakuje nad bodom) */
 .hotspot .panel {
     position: absolute;
     bottom: calc(100% + 15px);
@@ -579,7 +625,7 @@ section li {
 .hotspot .panel p {
     margin: 0;
     font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
 }
 
 .hotspot:hover .panel,
@@ -593,16 +639,12 @@ section li {
 }
 
 
-/* =======================================================
-   WORKSPACE - MOBILNÁ VERZIA
-   ======================================================= */
+
 @media (max-width: 768px) {
-    /* Urobíme dieru pod fotkou, aby mal panel kde pristáť bez skákania stránky */
     .workspace-container {
         margin-bottom: 7.5rem;
     }
 
-    /* Obal stratí pozíciu, inak nedovolí panelu roztiahnuť sa */
     .hotspot {
         position: static;
         width: 0;
@@ -610,23 +652,21 @@ section li {
         transform: none;
     }
 
-    /* KRÚŽOK SA PREVEZME MIESTO OBALU (drží na fotke vycentrovaný) */
+    
     .hotspot-dot {
         position: absolute;
         left: var(--x);
         top: var(--y);
         width: 30px;
         height: 30px;
-        transform: translate(-50%, -50%); /* Na mobile preberá funkciu centrovania */
+        transform: translate(-50%, -50%); 
     }
 
-    /* Hover krúžku na mobile (zachováme centrovanie, aby neuletel) */
     .hotspot:hover .hotspot-dot,
     .hotspot:focus-within .hotspot-dot {
         transform: translate(-50%, -50%) scale(1.2);
     }
 
-    /* PANEL SKOČÍ POD OBRÁZOK */
     .workspace-container .panel {
         position: absolute;
         bottom: auto;
@@ -644,10 +684,7 @@ section li {
 
     
 
-    /* =========================================================
-       1. PREDVOLENÁ VÝZVA (zobrazí sa, kým nie je nič vybraté)
-       ========================================================= */
-    /* Vytvoríme vizuálny panel priamo cez CSS, bez nutnosti meniť HTML */
+
     .workspace-container::after {
         content: "Kliknutím alebo prejdením myšou zistíte viac";
         position: absolute;
@@ -657,8 +694,8 @@ section li {
         right: 0;
         height: 6rem;
         background-color: var(--color-bg-card);
-        color: var(--color-text-muted);
-        border: 1px solid var(--color-title); /* Čiarkovaný okraj na odlíšenie */
+        color: var(--color-text-main);
+        border: 1px solid var(--color-title); 
         border-radius: var(--radius);
         display: flex;
         align-items: center;
@@ -671,16 +708,10 @@ section li {
         pointer-events: none;
     }
 
-    /* Ak je HOCIČO aktívne (hover alebo klik), skry predvolenú výzvu */
     .workspace-container:has(.hotspot:hover, .hotspot:focus-within)::after {
         opacity: 0;
     }
 
-    /* =========================================================
-       2. OPRAVA PREKRÝVANIA (Hover vyhráva nad focusom)
-       ========================================================= */
-    /* Ak je na niečom myš (hover), skry text všetkých ostatných bodov, 
-       AJ KEĎ sú práve kliknuté (focus). Tým sa zruší ten konflikt. */
     .workspace-container:has(.hotspot:hover) .hotspot:not(:hover) .panel {
         opacity: 0;
         pointer-events: none;
@@ -691,17 +722,33 @@ section li {
 
 
 
+.map-intro {
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
 
 
-/* =======================================================
-   MAPA - ROZLOŽENIE
-   ======================================================= */
+}
+
+.map-intro h2 {
+    color: var(--color-title);
+    font-size: 1.7rem;
+    margin: var(--space-top) auto 10px auto;
+    text-align: center;
+}
+
+.map-intro p {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
 
 .map-layout {
     display: flex;
     gap: var(--space);
     max-width: 1000px;
-    margin: 60px auto 60px auto;
     background-color: var(--color-bg-card);
     padding: 15px;
     border-radius: var(--radius-win);
@@ -710,13 +757,13 @@ section li {
     
 }
 
-/* Samotná mapa */
+
 .map-view {
-    flex: 2; /* Mapa zaberie viac miesta */
+    flex: 2;
     height: 500px;
     border-radius: 6px;
     border: 2px solid var(--color-title);
-    z-index: 1; /* Aby vyskakovacie okná mapy fungovali správne */
+    z-index: 1; 
 
 }
 
@@ -725,11 +772,15 @@ section li {
     flex: 1;
     display: flex;
     flex-direction: column;
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
+}
+
+.map-sidebar h2 {
+    margin: 30px auto 30px auto;
 }
 
 .map-sidebar h3 {
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     margin-top: 0;
 }
 
@@ -739,13 +790,13 @@ section li {
     margin-bottom: 15px;
     border-radius: 4px;
     background-color: var(--color-bg-body);
-    color: var(--color-text-muted);
-    border: 1px solid var(--color-text-muted);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-text-main);
 }
 
 .btn-primary {
     background-color: var(--color-title);
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -755,7 +806,7 @@ section li {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-title); /* Tmavšia zelená */
+    background-color: var(--color-title); 
 }
 
 .distance-result {
@@ -767,7 +818,7 @@ section li {
 }
 
 .map-credits {
-    margin-top: auto; /* Potlačí zdroje úplne dole */
+    margin-top: auto;
     padding-top: var(--space);
 }
 
@@ -775,15 +826,26 @@ section li {
     color: var(--color-title);
 }
 
-/* =======================================================
-   MAPA - MOBIL
-   ======================================================= */
+.clear-button {
+    font-size: 1rem; 
+    color: var(--color-figcaption);     
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#map-empty-state {
+    text-align: center;
+}
+
+
 @media (max-width: 768px) {
     .map-layout {
-        flex-direction: column; /* Hodí panel pod mapu */
+        flex-direction: column; 
     }
     .map-view {
-        height: 350px; /* Na mobile trochu menšia mapa */
+        height: 350px;
         flex: none;
         width: 100%;
         min-height: 350px;
